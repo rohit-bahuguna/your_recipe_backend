@@ -10,6 +10,9 @@ const comment = require('./Routers/Comment');
 const search = require('./Routers/RecipeSearch');
 const reply = require('./Routers/Reply');
 const mail = require('./Routers/Mail');
+const os = require('os');
+
+const PORT = process.env.PORT || 4000;
 require('./services');
 
 app.use(
@@ -18,6 +21,12 @@ app.use(
 		tempFileDir: '/tmp/'
 	})
 );
+app.get('/', (res, req) => {
+	res.status(200).json({
+		message: 'recipe backend runing on ' + PORT,
+		success: true
+	})
+})
 app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
