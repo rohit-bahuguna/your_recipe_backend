@@ -21,7 +21,7 @@ app.use(
 		tempFileDir: '/tmp/'
 	})
 );
-app.get('/', (res, req) => {
+app.get('/', (req, res) => {
 	res.status(200).json({
 		message: 'recipe backend runing on ' + PORT,
 		success: true
